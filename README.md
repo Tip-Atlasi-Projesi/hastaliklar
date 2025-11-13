@@ -67,7 +67,7 @@ Bu veri seti aşağıdaki alanlarda kullanılabilir:
 
 ## Lisans
 
-Bu veri seti, **Creative Commons Attribution 4.0 International (CC BY 4.0)** altında lisanslanmıştır. Lütfen kullanım sırasında bu lisansa uygun hareket ediniz.
+Bu veri seti, **MIT license** altında lisanslanmıştır. Lütfen kullanım sırasında bu lisansa uygun hareket ediniz.
 
 ---
 

@@ -1,86 +1,179 @@
-# Tıp Atlası Projesi | Hastalıklar Veri Seti
+# TABİP Hastalık Veritabanı
 
-Bu veri seti, Tıp Atlası Projesi kapsamında Dünya Sağlık Örgütü (WHO) ICD listesinde yer alan 925 hastalığın detaylı bilgilerini içermektedir. Araştırmacılar, sağlık uzmanları ve geliştiriciler için hastalık verilerinin kolayca erişilebileceği bir kaynaktır.
+Türkiye'de kullanılan **ICD (International Classification of Diseases)** hastalık kodları ve hastalık bilgilerini içeren açık veri kümesi.
 
-> ⚠️ Bu veri seti yalnızca **araştırma ve geliştirme amaçlıdır**. Tıbbi teşhis veya tedavi için kullanılmamalıdır.
+Bu depo, geliştiriciler, araştırmacılar, öğrenciler ve sağlık alanında çalışan kişiler için hazırlanmış olup, hastalık verilerine çevrimdışı erişim sağlamak amacıyla yayınlanmaktadır.
+
+## İçerik
+
+Bu veri kümesi hastalıklar hakkında çeşitli açıklayıcı bilgiler içermektedir.
+
+Her kayıt aşağıdaki bilgileri içerebilir:
+
+* ICD Kodu
+* Hastalık Adı
+* Vücutta Göründüğü Bölüm
+* Belirtiler
+* Hastalık Türü
+* Bulaşma Yolu
+* Tanı Yöntemleri
+* Önleme Yöntemleri
+* Komplikasyonlar
+* Hastalık Süresi
+* İlgili Uzmanlık Alanı
+* Tedavi Yöntemleri
+* Alternatif Tedaviler
+* İstatistiksel Bilgiler
+* Açıklama
+
+Veri kümesi UTF-8 karakter kodlaması kullanılarak hazırlanmıştır ve Türkçe karakterleri tam olarak desteklemektedir.
 
 ---
 
-## Veri Seti İçeriği
+# Desteklenen Dosya Formatları
 
-Veri seti aşağıdaki alanları içermektedir:
+Bu depo aynı veriyi farklı kullanım senaryoları için birden fazla formatta sunmaktadır.
 
-| Alan Adı                 | Açıklama |
-|---------------------------|----------|
-| **ICD_CODE**             | Hastalığın ICD kodu |
-| **Hastalik_Adi**         | Hastalığın adı |
-| **Vucutta_Gorundugu_Bolum** | Hastalığın görüldüğü organ veya bölge |
-| **Belirtiler**           | Hastalık belirtileri |
-| **Hastalik_Turu**        | Hastalık türü (örn: Malign Neoplazm, Enfeksiyon) |
-| **Bulasma_Yolu**         | Hastalığın bulaşma veya tetiklenme yolları |
-| **Tani_Yontemi**         | Tanı koyma yöntemleri |
-| **Onleme_Yontemleri**    | Önleme ve koruyucu tedbirler |
-| **Komplikasyonlar**      | Hastalık sonucu ortaya çıkabilecek komplikasyonlar |
-| **Hastalik_Suresi**      | Hastalığın süresi (akut/kronik) |
-| **Ilgili_Uzmanlik_Alani**| İlgili tıbbi uzmanlık alanı |
-| **Tedavi_Yontemleri**    | Mevcut tedavi yöntemleri |
-| **Alternatif_Tedaviler** | Destekleyici veya alternatif tedaviler |
-| **Istatistikler**        | Hastalığın görülme sıklığı ve istatistiksel bilgiler |
-| **Aciklama**             | Hastalık hakkında kısa açıklama |
-| **metin**                | Opsiyonel ek bilgi alanı |
+| Format | Açıklama                                                                                             |
+| ------ | ---------------------------------------------------------------------------------------------------- |
+| JSON   | Web uygulamaları, API geliştirme ve JavaScript projeleri için önerilir.                              |
+| CSV    | Microsoft Excel, LibreOffice Calc, Google Sheets, Pandas ve veri analizi uygulamaları için uygundur. |
+| SQL    | MySQL ve MariaDB veritabanlarına doğrudan aktarılabilecek SQL döküm dosyasıdır.                      |
 
 ---
 
-## Örnek Kayıt
+# Klasör Yapısı
+
+```text
+data/
+├── csv/
+│   └── hastaliklar.csv
+│
+├── json/
+│   └── hastaliklar.json
+│
+└── sql/
+    └── hastaliklar.sql
 ```
-ICD_CODE: C00
-Hastalik_Adi: Dudak malign neoplazmları
-Vucutta_Gorundugu_Bolum: Dudak
-Belirtiler: Dudakta yara, Şişlik, Kanama
-Hastalik_Turu: Malign Neoplazm
-Bulasma_Yolu: Tütün kullanımı, UV ışınları
-Tani_Yontemi: Biyopsi, görüntüleme
-Onleme_Yontemleri: Güneş koruyucu, tütün kullanmama
-Komplikasyonlar: Yayılım, lenf nodu tutulumu
-Hastalik_Suresi: Kronik
-Ilgili_Uzmanlik_Alani: Dermatoloji
-Tedavi_Yontemleri: Cerrahi, radyoterapi
-Alternatif_Tedaviler: Bitkisel destekler
-Istatistikler: Yılda 10.000 vaka, ölüm oranı düşük
-Aciklama: Bu hastalık, dudakta başlayan ve genellikle güneş ışığına uzun süre maruz kalma ile ilişkili bir kanser türüdür.
 
-``` 
+---
+
+# JSON Veri Yapısı
+
+Her kayıt aşağıdaki yapıya sahiptir.
+
+```json
+{
+    "row_id": "1",
+    "ICD_CODE": "C00",
+    "Hastalik_Adi": "Dudak malign neoplazmları",
+    "Vucutta_Gorundugu_Bolum": "Dudak",
+    "Belirtiler": "...",
+    "Hastalik_Turu": "...",
+    "Bulasma_Yolu": "...",
+    "Tani_Yontemi": "...",
+    "Onleme_Yontemleri": "...",
+    "Komplikasyonlar": "...",
+    "Hastalik_Suresi": "...",
+    "Ilgili_Uzmanlik_Alani": "...",
+    "Tedavi_Yontemleri": "...",
+    "Alternatif_Tedaviler": "...",
+    "Istatistikler": "...",
+    "Aciklama": "...",
+    "metin": ""
+}
+```
+
+> Alanlar veri güncellemeleriyle genişletilebilir. Yeni alanlar eklendiğinde mevcut alan adları mümkün olduğunca korunmaya çalışılır.
+
+---
+
+# TABİP API
+
+Bu veri kümesi, **TABİP API** tarafından kullanılan hastalık verilerinin çevrimdışı sürümüdür.
+
+API kullanarak hastalık verilerine internet üzerinden erişebilir, bu depodaki dosyaları indirerek ise aynı verileri kendi projelerinizde çevrimdışı olarak kullanabilirsiniz.
+
+TABİP API özellikleri:
+
+* ICD koduna göre hastalık arama
+* JSON formatında çıktı
+* HTTP GET istekleri
+* UTF-8 desteği
+* Hafif ve hızlı REST benzeri yapı
+
+API dokümantasyonu için ilgili TABİP API deposuna göz atabilirsiniz.
+
+---
+
+# Kullanım Alanları
+
+Bu veri kümesi aşağıdaki projelerde kullanılabilir:
+
+* Sağlık uygulamaları
+* Hastane bilgi sistemleri
+* Eğitim projeleri
+* Üniversite araştırmaları
+* Veri analizi çalışmaları
+* Makine öğrenmesi projeleri
+* Mobil uygulamalar
+* Masaüstü uygulamaları
+* Web uygulamaları
+
+---
+
+# Veri Kaynağı
+
+Bu veri kümesi, **Dünya Sağlık Örgütü (WHO)** tarafından yayımlanan **ICD-10 (International Statistical Classification of Diseases and Related Health Problems, 10th Revision)** sınıflandırması ile **T.C. Sağlık Bakanlığı** tarafından kullanılan hastalık sınıflandırmaları esas alınarak hazırlanmıştır. ICD, hastalıkların uluslararası düzeyde standart olarak sınıflandırılmasını sağlayan bir sistemdir.
+
+Bu depoda yer alan veriler, TABİP projesi kapsamında geliştiricilerin daha kolay kullanabilmesi amacıyla düzenlenmiş, standartlaştırılmış ve makine tarafından okunabilir veri formatlarına (JSON, CSV ve SQL) dönüştürülmüştür.
+
+TABİP tarafından gerçekleştirilen çalışmalar arasında şunlar yer almaktadır:
+
+* Verilerin standart veri yapısına dönüştürülmesi
+* UTF-8 karakter kodlaması ile uyumlu hale getirilmesi
+* JSON, CSV ve SQL formatlarında yayımlanması
+* Alan adlarının standartlaştırılması
+* Açıklayıcı hastalık bilgilerinin düzenlenmesi
+* Geliştiriciler için kullanılabilir veri kümelerinin oluşturulması
+
+Bu proje, resmi sağlık verilerinin yerine geçmeyi amaçlamaz. Eğitim, araştırma, yazılım geliştirme ve veri analizi çalışmalarında kullanılmak üzere hazırlanmış açık bir veri kümesidir.
+
+Resmî sınıflandırmalar ve güncel bilgiler için ilgili kurumların yayınları takip edilmelidir.
 
 
 ---
 
-## Kullanım Alanları
+# Sürümleme
 
-Bu veri seti aşağıdaki alanlarda kullanılabilir:
+Her sürüm GitHub sürümleri (Releases) üzerinden yayınlanmaktadır.
 
-- Araştırma ve akademik çalışmalar
-- Sağlık teknolojisi ve yazılım geliştirme
-- Hastalık sınıflandırmaları ve analiz
-- Veri bilimi ve makine öğrenimi projeleri
+Sürüm notları için `CHANGELOG.md` dosyasına bakabilirsiniz.
 
 ---
 
-## Lisans
+# Lisans
 
-Bu veri seti, **MIT license** altında lisanslanmıştır. Lütfen kullanım sırasında bu lisansa uygun hareket ediniz.
+Bu depo içerisindeki lisans koşulları için `LICENSE` dosyasını inceleyiniz.
 
----
-
-## Katkıda Bulunma
-
-Bu veri setine katkıda bulunmak için GitHub üzerinden bir pull request gönderebilir veya issue açabilirsiniz.
+Veriyi kullanmadan önce lisans şartlarını okumanız önerilir.
 
 ---
 
-## İletişim
+# Katkıda Bulunma
 
-Herhangi bir soru veya öneri için: **tipatlasiprojesi@gmail.com**
+Hatalı veri bildirimi, öneriler ve katkılar için GitHub Issues veya Pull Request kullanabilirsiniz.
+
+Topluluk katkıları veri kalitesinin artırılmasına yardımcı olmaktadır.
 
 ---
 
-**Not:** Bu veri seti yalnızca bilgilendirme ve araştırma amaçlıdır. Sağlıkla ilgili kararlar için bir uzmana danışmanız önemlidir.
+# TABİP Projesi
+
+Bu veri kümesi, sağlık verilerini geliştiriciler için daha erişilebilir hale getirmeyi amaçlayan **TABİP** açık veri projesinin bir parçasıdır.
+
+TABİP kapsamında farklı sağlık veri kümeleri ve geliştirici araçları da yayınlanmaktadır.
+
+Teşekkür ederiz.
+
+
